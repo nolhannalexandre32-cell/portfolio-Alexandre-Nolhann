@@ -5,337 +5,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio BTS SIO - Prénom Nom</title>
- 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
- 
+<title>Portfolio BTS SIO</title>
+
 <style>
-:root{
---primary:#00bfff;
---dark:#0f172a;
---dark2:#1e293b;
---text:#f8fafc;
-}
- 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
 }
- 
+
 body{
-background:var(--dark);
-color:var(--text);
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
 }
- 
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(15,23,42,.95);
-backdrop-filter:blur(10px);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10%;
-z-index:1000;
+
+/* Fond informatique */
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,50px);
+    grid-auto-rows:50px;
+    z-index:-1;
 }
- 
-nav h2{
-color:var(--primary);
+
+.background span{
+    border:1px solid rgba(255,255,255,0.05);
+    background:rgba(128,128,128,0.03);
+    transition:0.5s;
 }
- 
-nav ul{
-display:flex;
-list-style:none;
-gap:25px;
+
+.background span:hover{
+    background:#808080;
+    box-shadow:0 0 15px #808080;
 }
- 
+
+/* Header */
+header{
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#e5e7eb;
+}
+
 nav a{
-color:white;
-text-decoration:none;
-transition:.3s;
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
 }
- 
+
 nav a:hover{
-color:var(--primary);
+    color:#9ca3af;
 }
- 
+
+/* Hero */
 .hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 10%;
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+    padding:20px;
 }
- 
-.hero-text{
-max-width:600px;
+
+.hero h1{
+    font-size:4rem;
 }
- 
-.hero-text h1{
-font-size:4rem;
+
+.hero h1 span{
+    color:#9ca3af;
 }
- 
-.hero-text span{
-color:var(--primary);
+
+.hero p{
+    max-width:700px;
+    margin:20px 0;
+    color:#d1d5db;
 }
- 
-.hero-text p{
-margin:20px 0;
-color:#cbd5e1;
-line-height:1.8;
-}
- 
+
 .btn{
-display:inline-block;
-padding:12px 30px;
-background:var(--primary);
-color:white;
-text-decoration:none;
-border-radius:50px;
-transition:.3s;
+    display:inline-block;
+    padding:12px 30px;
+    background:#6b7280;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:0.3s;
 }
- 
+
 .btn:hover{
-transform:translateY(-5px);
+    background:#9ca3af;
 }
- 
-.hero img{
-width:350px;
-border-radius:50%;
-border:5px solid var(--primary);
-}
- 
+
+/* Sections */
 section{
-padding:100px 10%;
+    padding:80px 10%;
 }
- 
-.section-title{
-text-align:center;
-font-size:2.5rem;
-margin-bottom:50px;
-color:var(--primary);
+
+h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2rem;
 }
- 
-.about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
- 
+
 .card{
-background:var(--dark2);
-padding:30px;
-border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(5px);
+    border-radius:15px;
+    padding:25px;
+    transition:0.3s;
 }
- 
-.skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
+
+.card:hover{
+    transform:translateY(-10px);
+    border:1px solid #9ca3af;
 }
- 
-.skill{
-background:var(--dark2);
-padding:20px;
-text-align:center;
-border-radius:10px;
-transition:.3s;
-}
- 
-.skill:hover{
-transform:translateY(-10px);
-border:1px solid var(--primary);
-}
- 
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-}
- 
-.project{
-background:var(--dark2);
-border-radius:15px;
-overflow:hidden;
-transition:.3s;
-}
- 
-.project:hover{
-transform:scale(1.03);
-}
- 
-.project img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
- 
-.project-content{
-padding:20px;
-}
- 
-.contact{
-text-align:center;
-}
- 
-.contact p{
-margin:15px 0;
-}
- 
+
 footer{
-text-align:center;
-padding:30px;
-background:#020617;
-color:#94a3b8;
-}
- 
-@media(max-width:900px){
- 
-.hero{
-flex-direction:column;
-text-align:center;
-padding-top:120px;
-}
- 
-.hero img{
-margin-top:50px;
-width:250px;
-}
- 
-.about{
-grid-template-columns:1fr;
-}
- 
-.hero-text h1{
-font-size:2.8rem;
-}
- 
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,0.1);
 }
 </style>
 </head>
- 
+
 <body>
- 
-<nav>
-<h2>Portfolio</h2>
-<ul>
-<li><a href="#about">À propos</a></li>
-<li><a href="#skills">Compétences</a></li>
-<li><a href="#projects">Projets</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
- 
+
+<div class="background" id="background"></div>
+
+<header>
+    <div class="logo">Portfolio BTS SIO</div>
+    <nav>
+        <a href="#about">À propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
 <section class="hero">
-<div class="hero-text">
-<h1>Bonjour, je suis <span>Prénom Nom</span></h1>
-<p>
-Étudiant en BTS SIO passionné par le développement web,
-les réseaux informatiques et la cybersécurité.
-Mon objectif est de développer des solutions innovantes
-tout en renforçant mes compétences techniques.
-</p>
- 
-<a href="#contact" class="btn">Me contacter</a>
-</div>
- 
-<img src="https://via.placeholder.com/350" alt="Photo">
+    <h1>Bonjour, je suis <span>Étudiant BTS SIO</span></h1>
+    <p>
+        Passionné par le développement web, la cybersécurité et les technologies de l'information.
+    </p>
+    <a href="#projects" class="btn">Voir mes projets</a>
 </section>
- 
-<section id="about">
-<h2 class="section-title">À propos</h2>
- 
-<div class="about">
-<div class="card">
-<h3>Profil</h3>
-<br>
-<p>
-Étudiant en BTS Services Informatiques aux Organisations.
-Curieux, autonome et motivé, je suis passionné par
-les nouvelles technologies et l'informatique.
-</p>
-</div>
- 
-<div class="card">
-<h3>Formation</h3>
-<br>
-<p>
-BTS SIO (SLAM / SISR)<br>
-Lycée XXXXX<br>
-2025 - 2027
-</p>
-</div>
-</div>
-</section>
- 
+
 <section id="skills">
-<h2 class="section-title">Compétences</h2>
- 
-<div class="skills">
-<div class="skill">HTML5</div>
-<div class="skill">CSS3</div>
-<div class="skill">JavaScript</div>
-<div class="skill">PHP</div>
-<div class="skill">MySQL</div>
-<div class="skill">Python</div>
-<div class="skill">Linux</div>
-<div class="skill">Git / GitHub</div>
-</div>
+    <h2>Mes Compétences</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>HTML / CSS</h3>
+            <p>Création de sites web modernes et responsives.</p>
+        </div>
+
+        <div class="card">
+            <h3>JavaScript</h3>
+            <p>Développement d'interfaces dynamiques.</p>
+        </div>
+
+        <div class="card">
+            <h3>PHP / MySQL</h3>
+            <p>Développement d'applications web et bases de données.</p>
+        </div>
+    </div>
 </section>
- 
+
 <section id="projects">
-<h2 class="section-title">Mes Projets</h2>
- 
-<div class="projects">
- 
-<div class="project">
-<img src="https://picsum.photos/600/400?1">
-<div class="project-content">
-<h3>Application de Gestion</h3>
-<p>Système complet de gestion développé en PHP et MySQL.</p>
-</div>
-</div>
- 
-<div class="project">
-<img src="https://picsum.photos/600/400?2">
-<div class="project-content">
-<h3>Site E-Commerce</h3>
-<p>Boutique en ligne responsive avec espace administrateur.</p>
-</div>
-</div>
- 
-<div class="project">
-<img src="https://picsum.photos/600/400?3">
-<div class="project-content">
-<h3>Infrastructure Réseau</h3>
-<p>Architecture réseau configurée sous Cisco Packet Tracer.</p>
-</div>
-</div>
- 
-</div>
+    <h2>Mes Projets</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Gestion de Stock</h3>
+            <p>Application web complète avec interface administrateur.</p>
+        </div>
+
+        <div class="card">
+            <h3>Portfolio Personnel</h3>
+            <p>Site responsive présentant mes compétences et projets.</p>
+        </div>
+
+        <div class="card">
+            <h3>Application BTS SIO</h3>
+            <p>Projet de gestion développé durant la formation.</p>
+        </div>
+    </div>
 </section>
- 
-<section id="contact">
-<h2 class="section-title">Contact</h2>
- 
-<div class="contact">
-<p>📧 email@exemple.com</p>
-<p>💼 LinkedIn : linkedin.com/in/votreprofil</p>
-<p>💻 GitHub : github.com/votreprofil</p>
-</div>
-</section>
- 
+
 <footer>
-© 2026 - Portfolio BTS SIO | Prénom Nom
+    © 2026 - Portfolio BTS SIO
 </footer>
- 
+
+<script>
+const background = document.getElementById('background');
+
+for(let i = 0; i < 800; i++){
+    const square = document.createElement('span');
+    background.appendChild(square);
+}
+</script>
+
 </body>
 </html>
-
-Ce modèle a un rendu proche d'un vrai portfolio de développeur junior avec design moderne, responsive et professionnel.
-
-Sépare le HTML et le CSSAjoute un formulaire de contactAjoute une section CV téléchargeable
